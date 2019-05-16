@@ -1,4 +1,4 @@
-		<nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+		<nav class="navbar has-shadow is-white" role="navigation" aria-label="main navigation">
     		<div class="container">
 			  	<div class="navbar-brand">
 			    	<a class="navbar-item" href="{{ url('/') }}">
@@ -57,11 +57,19 @@
 						          		<a class="navbar-item">
 						            		<i class="fa fa-fw m-r-10 fa-bell"></i>Notifications
 						          		</a>
-						          		<a class="navbar-item">
-						            		<i class="fa fa-fw m-r-10 fa-cog"></i>Settings
+						          		<a class="navbar-item" href="{{ route('manage.dashboard') }}">
+						            		<i class="fa fa-fw m-r-10 fa-cog"></i>Manage
 						          		</a>
 						          		<hr class="navbar-divider">
-						          		<a class="navbar-item">
+                
+						          		<a class="navbar-item" href="{{ route('logout') }}" onclick="
+							                event.preventDefault();
+							                document.getElementById('logout-form').submit();">
+
+							                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							                    @csrf
+							                </form>
+
 						            		<i class="fa fa-fw m-r-10 fa-sign-out"></i>Logout</a>
 						          		</a>
 						        	</div>
