@@ -1,0 +1,32 @@
+
+        <nav class="nav has-shadow">
+            <div class="container">
+                <div class="nav-left">
+                    <a class="nav-item" href="{{ route('home') }}">
+                        {{-- <img src="{{ asset('images/logo.png') }}" alt="MyBlog Logo"> --}}
+                        <h4>My Blog</h4>
+                    </a>
+                    <a class="nav-item is-tab is-hidden-mobile m-l-10" href="#">Learn</a>
+                    <a class="nav-item is-tab is-hidden-mobile" href="#">Discuss</a>
+                    <a class="nav-item is-tab is-hidden-mobile" href="#">Share</a>
+                </div>
+
+                <div class="nav-right">
+                    @if (Auth::guest())
+                        <a href="{{ route('login') }}" class="nav-item is-tab">Login</a>
+                        <a href="{{ route('register') }}" class="nav-item is-tab">Join the community</a>
+                    @else
+                        <button class="dropdown nav-item is-tab">
+                            Hey Umar <span class="icon"><i class="fa fa-caret-down"></i></span>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-fw m-r-10 fa-user-circle-o"></i>Profile</a></li>
+                                <li><a href="#"><i class="fa fa-fw m-r-10 fa-bell"></i>Notifications</a></li>
+                                <li><a href="#"><i class="fa fa-fw m-r-10 fa-cog"></i>Settings</a></li>
+                                <li class="seperator"></li>
+                                <li><a href="#"><i class="fa fa-fw m-r-10 fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </button>
+                    @endif
+                </div>
+            </div>
+        </nav>

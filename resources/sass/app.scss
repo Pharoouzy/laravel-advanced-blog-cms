@@ -9,7 +9,7 @@
 // @import '~bootstrap/scss/bootstrap';
 
 // Bulma
-@import "node_modules/bulma/bulma";
+@import "node_modules/bulma/bulma.sass";
 
 // Font-awesome
 @import "node_modules/font-awesome/scss/font-awesome";
@@ -21,3 +21,10 @@
 //   background-color: #fff;
 //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 // }
+
+// custom SASS Pages to override css framework
+@import "overrides"; // overrides.scss
+// for margin, align, etc
+@import "helpers"; // helpers.scss
+// general scss
+@import "styles"; // styles.scss
