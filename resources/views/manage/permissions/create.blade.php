@@ -92,7 +92,7 @@
 
 @section('scripts')
 	<script>
-		let app = new Vue({
+		var app = new Vue({
 			el: '#app',
 			data: {
 				permission_type: 'basic',

@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -8,14 +7,12 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-import Buefy from 'buefy';
+// import Vue from 'vue'; 
 
+import Buefy from 'buefy';
+// import 'buefy/lib/buefy.css';
 Vue.use(Buefy);
 
-var app = new Vue({
-	el: '#app',
-	data: {}
-});
 
 /**
  * The following block of code may be used to automatically register your
