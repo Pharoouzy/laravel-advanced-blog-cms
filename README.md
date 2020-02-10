@@ -1,142 +1,69 @@
-# accepts
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-[![NPM Version][npm-version-image]][npm-url]
-[![NPM Downloads][npm-downloads-image]][npm-url]
-[![Node.js Version][node-version-image]][node-version-url]
-[![Build Status][travis-image]][travis-url]
-[![Test Coverage][coveralls-image]][coveralls-url]
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
-Higher level content negotiation based on [negotiator](https://www.npmjs.com/package/negotiator).
-Extracted from [koa](https://www.npmjs.com/package/koa) for general use.
+## About Laravel
 
-In addition to negotiator, it allows:
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
 
-- Allows types as an array or arguments list, ie `(['text/html', 'application/json'])`
-  as well as `('text/html', 'application/json')`.
-- Allows type shorthands such as `json`.
-- Returns `false` when no types match
-- Treats non-existent headers as `*`
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-## Installation
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
 
-This is a [Node.js](https://nodejs.org/en/) module available through the
-[npm registry](https://www.npmjs.com/). Installation is done using the
-[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
+## Learning Laravel
 
-```sh
-$ npm install accepts
-```
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
 
-## API
+If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-<!-- eslint-disable no-unused-vars -->
+## Laravel Sponsors
 
-```js
-var accepts = require('accepts')
-```
+We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
 
-### accepts(req)
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- [UserInsights](https://userinsights.com)
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
+- [Invoice Ninja](https://www.invoiceninja.com)
+- [iMi digital](https://www.imi-digital.de/)
+- [Earthlink](https://www.earthlink.ro/)
+- [Steadfast Collective](https://steadfastcollective.com/)
+- [We Are The Robots Inc.](https://watr.mx/)
+- [Understand.io](https://www.understand.io/)
 
-Create a new `Accepts` object for the given `req`.
+## Contributing
 
-#### .charset(charsets)
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-Return the first accepted charset. If nothing in `charsets` is accepted,
-then `false` is returned.
+## Security Vulnerabilities
 
-#### .charsets()
-
-Return the charsets that the request accepts, in the order of the client's
-preference (most preferred first).
-
-#### .encoding(encodings)
-
-Return the first accepted encoding. If nothing in `encodings` is accepted,
-then `false` is returned.
-
-#### .encodings()
-
-Return the encodings that the request accepts, in the order of the client's
-preference (most preferred first).
-
-#### .language(languages)
-
-Return the first accepted language. If nothing in `languages` is accepted,
-then `false` is returned.
-
-#### .languages()
-
-Return the languages that the request accepts, in the order of the client's
-preference (most preferred first).
-
-#### .type(types)
-
-Return the first accepted type (and it is returned as the same text as what
-appears in the `types` array). If nothing in `types` is accepted, then `false`
-is returned.
-
-The `types` array can contain full MIME types or file extensions. Any value
-that is not a full MIME types is passed to `require('mime-types').lookup`.
-
-#### .types()
-
-Return the types that the request accepts, in the order of the client's
-preference (most preferred first).
-
-## Examples
-
-### Simple type negotiation
-
-This simple example shows how to use `accepts` to return a different typed
-respond body based on what the client wants to accept. The server lists it's
-preferences in order and will get back the best match between the client and
-server.
-
-```js
-var accepts = require('accepts')
-var http = require('http')
-
-function app (req, res) {
-  var accept = accepts(req)
-
-  // the order of this list is significant; should be server preferred order
-  switch (accept.type(['json', 'html'])) {
-    case 'json':
-      res.setHeader('Content-Type', 'application/json')
-      res.write('{"hello":"world!"}')
-      break
-    case 'html':
-      res.setHeader('Content-Type', 'text/html')
-      res.write('<b>hello, world!</b>')
-      break
-    default:
-      // the fallback is text/plain, so no need to specify it above
-      res.setHeader('Content-Type', 'text/plain')
-      res.write('hello, world!')
-      break
-  }
-
-  res.end()
-}
-
-http.createServer(app).listen(3000)
-```
-
-You can test this out with the cURL program:
-```sh
-curl -I -H'Accept: text/html' http://localhost:3000/
-```
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-[MIT](LICENSE)
-
-[coveralls-image]: https://badgen.net/coveralls/c/github/jshttp/accepts/master
-[coveralls-url]: https://coveralls.io/r/jshttp/accepts?branch=master
-[node-version-image]: https://badgen.net/npm/node/accepts
-[node-version-url]: https://nodejs.org/en/download
-[npm-downloads-image]: https://badgen.net/npm/dm/accepts
-[npm-url]: https://npmjs.org/package/accepts
-[npm-version-image]: https://badgen.net/npm/v/accepts
-[travis-image]: https://badgen.net/travis/jshttp/accepts/master
-[travis-url]: https://travis-ci.org/jshttp/accepts
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
