@@ -4,7 +4,6 @@ namespace App;
 
 use Laratrust\LaratrustRole;
 
-class Role extends LaratrustRole
-{
+class Role extends LaratrustRole {
     //
 }

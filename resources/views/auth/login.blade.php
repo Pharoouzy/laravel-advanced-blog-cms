@@ -33,7 +33,10 @@
                             @endif
                         </p>
                     </div>
-                    <b-checkbox name="remember" {{ old('remember') ? 'checked' : '' }} class="m-t-20 checked">{{ __('Remember Me') }}</b-checkbox>
+                    {{-- <label>
+                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} class="m-t-20 checked">{{ __('Remember Me') }}
+                    </label> --}}
+                    <b-checkbox name="remember" class="m-t-20">{{ __('Remember Me') }}</b-checkbox>
                     <button type="submit" class="button is-success is-outlined is-fullwidth m-t-30">{{ __('Login') }}</button>
                 </form>
             </div>

@@ -29,12 +29,6 @@
 
 				    <div class="navbar-end">
 			      		@if (Auth::guest())
-				      		{{-- <a href="#" class="navbar-item is-tab is-hidden-mobile">
-					        	Login
-					      	</a>
-					      	<a href="#" class="navbar-item is-tab is-hidden-mobile">
-					        	Join the community
-					      	</a> --}}
 			      			<div class="buttons">
 				          		<a href="{{ route('login') }}" class="button is-light">
 				            		Log in
