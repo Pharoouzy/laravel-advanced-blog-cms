@@ -13,10 +13,8 @@
 				<form method="POST" action="{{ route('permissions.store') }}">
 					{{ csrf_field() }}
 					<div class="block">
-						<b-radio-group v-model="permissionType">
-							<b-radio name="permission_type" value="basic">Basic Permission</b-radio>
-							<b-radio name="permission_type" value="crud">CRUD Permission</b-radio>
-						</b-radio-group>
+						<b-radio v-model="permissionType" name="permission_type" native-value="basic">Basic Permission</b-radio>
+						<b-radio v-model="permissionType" name="permission_type" native-value="crud">Basic Permission</b-radio>
 					</div>
 					<div class="field" v-if="permissionType == 'basic'">
 						<label for="display_name" class="label">Name (Display Name)</label>
@@ -95,7 +93,7 @@
 		var app = new Vue({
 			el: '#app',
 			data: {
-				permission_type: 'basic',
+				permissionType: 'basic',
 				resource: '',
 				crudSelected: ['create', 'read', 'update', 'delete']
 			},
